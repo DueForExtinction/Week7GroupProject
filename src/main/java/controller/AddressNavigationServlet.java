@@ -44,6 +44,10 @@ public class AddressNavigationServlet extends HttpServlet {
 			}
 		}
 		
+		else if(act.equals("add")) {
+			path = "/index.html";
+		}
+		
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	
 	}
