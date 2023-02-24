@@ -20,6 +20,7 @@
 	</tr>
 </c:forEach>
 </table>
+<input type="submit" value="delete" name="ChangeAddress">
 </form>
 </body>
 </html>

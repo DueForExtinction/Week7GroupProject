@@ -33,4 +33,29 @@ public class AddressItemHelper {
 		List<Address> listAddresses = em.createQuery("SELECT i FROM Address i").getResultList();
 		return listAddresses;
 	}
+	
+	public void deleteAddress(Address toDelete) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Address> typedQuery = em.createQuery("SELECT adrs FROM Address adrs WHERE adrs.street = :selectedStreet and adrs.city = :selectedCity and adrs.state = :selectedState and adrs.zip = :selectZip", Address.class);
+		typedQuery.setParameter("selectedStreet", toDelete.getStreet());
+		typedQuery.setParameter("selectedCity", toDelete.getCity());
+		typedQuery.setParameter("selectedState", toDelete.getState());
+		typedQuery.setParameter("selectZip", toDelete.getZip());
+		typedQuery.setMaxResults(1);
+		
+		Address result = typedQuery.getSingleResult();
+		
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	public Address searchForAddressById(int idToEdit) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Address found = em.find(Address.class, idToEdit);
+		em.close();
+		return found;
+	}
 }
