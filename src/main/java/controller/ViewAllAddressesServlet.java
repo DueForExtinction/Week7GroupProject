@@ -29,7 +29,7 @@ public class ViewAllAddressesServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		AddressItemHelper dao = new AddressItemHelper();
 		request.setAttribute("ListAddresses", dao.showAllAddresses());
-		String path="Address-List.jsp";
+		String path="/Address-List.jsp";
 		
 		if(dao.showAllAddresses().isEmpty()) {
 			path="/index.html";
