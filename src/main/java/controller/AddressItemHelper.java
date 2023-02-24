@@ -3,9 +3,12 @@
  */
 package controller;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import model.Address;
 
@@ -23,5 +26,11 @@ public class AddressItemHelper {
 		em.persist(ad);
 		em.getTransaction().commit();
 		em.close();
+	}
+	
+	public List<Address> showAllAddresses(){
+		EntityManager em = emfactory.createEntityManager();
+		List<Address> listAddresses = em.createQuery("SELECT i FROM Address i").getResultList();
+		return listAddresses;
 	}
 }
