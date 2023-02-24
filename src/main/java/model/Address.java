@@ -3,16 +3,32 @@
  */
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author Brandon Thompson - Brandon Thompson
  *CIS175 - Spring 2023
  * Feb 23, 2023
  */
+
+@Entity
+@Table(name="address")
 public class Address {
+	@Id
+	@GeneratedValue
+	@Column(name="ID")
 	private int id;
+	@Column(name="STREET")
 	private String street;
+	@Column(name="CITY")
 	private String city;
+	@Column(name="STATE")
 	private String state;
+	@Column(name="ZIP")
 	private String zip;
 	
 	public Address() {
