@@ -35,9 +35,8 @@ public class Address {
 		
 	}
 
-	public Address(int id, String street, String city, String state, String zip) {
+	public Address(String street, String city, String state, String zip) {
 		super();
-		this.id = id;
 		this.street = street;
 		this.city = city;
 		this.state = state;
