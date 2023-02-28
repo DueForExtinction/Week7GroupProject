@@ -12,8 +12,8 @@ Street: <input type="text" name ="street" value ="${addressToEdit.street }">
 City: <input type="text" name ="city" value ="${addressToEdit.city }">
 State: <input type="text" name ="state" value ="${addressToEdit.state }">
 Zip: <input type="text" name ="zip" value ="${addressToEdit.zip }">
-<input type ="hidden" name="id" value ="${itemToEdit.id }">
-<input type="submit" value="Save Edited Item">
+<input type ="hidden" name="id" value ="${addressToEdit.id }">
+<input type="submit" value="Save Edited Address">
 </form>
 
 </body>
