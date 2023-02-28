@@ -22,6 +22,7 @@
 </table>
 <input type="submit" value="delete" name="ChangeAddress">
 <input type="submit" value="add" name="ChangeAddress">
+<input type="submit" value="edit" name="ChangeAddress">
 </form>
 </body>
 </html>
