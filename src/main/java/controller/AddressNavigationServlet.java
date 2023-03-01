@@ -43,6 +43,17 @@ public class AddressNavigationServlet extends HttpServlet {
 				System.out.println("Forgot to select an address.");
 			}
 		}
+		else if(act.equals("edit")) {
+			try {
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				Address addressToEdit = dao.searchForAddressById(tempId);
+				request.setAttribute("addressToEdit", addressToEdit);
+				path="/Edit-Address.jsp";
+			}
+			catch(NumberFormatException e) {
+				System.out.println("Forgot to select an address");
+			}
+		}
 		
 		else if(act.equals("add")) {
 			path = "/index.html";

@@ -53,7 +53,7 @@ public class EditAddressServlet extends HttpServlet {
 		addressToUpdate.setZip(zip);
 		
 		dao.updateAddress(addressToUpdate);
-		getServletContext().getRequestDispatcher("/viewAllAddressServlet").forward(request, response);
+		getServletContext().getRequestDispatcher("/viewAllAddressesServlet").forward(request, response);
 	}
 
 }
