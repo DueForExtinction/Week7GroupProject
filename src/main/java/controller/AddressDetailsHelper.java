@@ -30,7 +30,7 @@ public class AddressDetailsHelper {
 	
 	public List<AddressDetails> getDetails(){
 		EntityManager em = emfactory.createEntityManager();
-		List<AddressDetails> allDetails = em.createQuery("SELECT d from AddressDetails d").getResultList();
+		List<AddressDetails> allDetails = em.createQuery("SELECT d FROM AddressDetails d").getResultList();
 		return allDetails;
 	}
 

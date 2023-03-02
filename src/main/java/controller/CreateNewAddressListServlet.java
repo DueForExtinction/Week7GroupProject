@@ -37,19 +37,20 @@ public class CreateNewAddressListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		AddressItemHelper aih = new AddressItemHelper();
 		String detailsName = request.getParameter("detailsName");
+		System.out.println("List name: " + detailsName);
 		
 		String resident = request.getParameter("resident");
 		
 		String month = request.getParameter("month");
 		String day= request.getParameter("day");
 		String year = request.getParameter("year");
-		LocalDate id;
+		LocalDate ld;
 		
 		try {
-			id = LocalDate.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
+			ld = LocalDate.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
 		}
 		catch(NumberFormatException ex) {
-			id=LocalDate.now();
+			ld=LocalDate.now();
 		}
 		
 		String[] selectedAddresses = request.getParameterValues("allAddressesToAdd");
@@ -65,13 +66,16 @@ public class CreateNewAddressListServlet extends HttpServlet {
 		}
 		
 		AddressList al = new AddressList(resident);
-		AddressDetails ad = new AddressDetails(detailsName, id, al);
+		AddressDetails ad = new AddressDetails(detailsName, ld, al);
 		
 		ad.setListOfAddresses(selectedAddressesInList);
 		AddressDetailsHelper adh = new AddressDetailsHelper();
 		adh.insertNewAddressDetails(ad);
 		
-		getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
+		System.out.println("Success!");
+		System.out.println(adh.toString());
+		
+		getServletContext().getRequestDispatcher("/viewAllAddressListsServlet").forward(request, response);
 	}
 
 	/**
