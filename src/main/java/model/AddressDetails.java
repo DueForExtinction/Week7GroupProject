@@ -29,7 +29,7 @@ public class AddressDetails {
 	private LocalDate accessDate;
 	@ManyToOne (cascade=CascadeType.PERSIST)
 	private AddressList adList;
-	@OneToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	private List<Address> listOfAddresses;
 	
 	public AddressDetails() {

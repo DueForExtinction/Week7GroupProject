@@ -18,7 +18,7 @@ import model.AddressDetails;
  *
  */
 public class AddressDetailsHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("addresslist");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Week7Project");
 	
 	public void insertNewAddressDetails(AddressDetails s) {
 		EntityManager em = emfactory.createEntityManager();
