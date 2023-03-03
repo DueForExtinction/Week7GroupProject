@@ -21,8 +21,9 @@
 </c:forEach>
 </c:forEach>
 </table>
+<input type = "submit" value="delete" name="DoThisToList">
 </form>
 <a href="createNewAddressListServlet">Create a new address list</a>
-<a href="idex.html">Add more addresses</a>
+<a href="index.html">Add more addresses</a>
 </body>
 </html>
