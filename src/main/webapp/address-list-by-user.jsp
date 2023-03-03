@@ -5,23 +5,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>List of addresses</title>
+<title>All address lists</title>
 </head>
 <body>
 <form method="post" action="addressListNavigationServlet">
 <table>
-<c:forEach items="${requsetScope.allAddressLists }" var="currentAddressList">
+<c:forEach items="${requestScope.currentAddressList }" var="currentaddresslist">
 <tr>
-	<td><input type="radio" name="id" value="${currentAddress.id }"></td>
-	<td><h2>${currentAddressList.detailsName }</h2>
-	<tr><td colspan="3">Date created: ${currentAddressList.accessDate}</td></tr>
-	<tr><td colspan="3">Resident:${currentAddressList.addresslist.resident }</td></tr>
-	<c:forEach var="addressVal" items="${currentAddress.listOfAddresses }"><tr><td></td><td colspan="3">${addressVal.street }, ${addressVal.city }, ${addressVal.state }, ${addressVal.zip }
-	</td></tr>
+<td><input type="radio" name="id" value="${currentaddresslist.id }"></td>
+<td><h2>${currentaddresslist.detailsName }</h2></td></tr>
+<tr><td colspan="3">Date created: ${currentaddresslist.accessDate}
+<tr><td colspan="3">Resident: ${currentaddresslist.adList.resident}</td></tr>
+<c:forEach var="addressVal" items="${currentaddresslist.listOfAddresses }"><tr><td></td><td colspan="3">Address: ${addressVal.street }, ${addressVal.city }, ${addressVal.state }, ${addressVal.zip }
+</td></tr>
 </c:forEach>
 </c:forEach>
 </table>
 </form>
-<a href="index.html">Add new addresses.</a>
+<a href="createNewAddressListServlet">Create a new address list</a>
+<a href="idex.html">Add more addresses</a>
 </body>
 </html>

@@ -35,13 +35,13 @@ public class ViewAllAddressListsServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		AddressDetailsHelper ald = new AddressDetailsHelper();
 		List<AddressDetails> abc = ald.getDetails();
-		request.setAttribute("allAddressLists", abc);
+		request.setAttribute("currentAddressList", abc);
 		
 		if(abc.isEmpty()) {
-			request.setAttribute("allAddressLists", " ");
+			request.setAttribute("currentAddressList", " ");
 		}
 		
-		getServletContext().getRequestDispatcher("/address-list-by-user.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/Address-List-By-User.jsp").forward(request, response);
 	}
 
 	/**

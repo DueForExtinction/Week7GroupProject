@@ -36,10 +36,12 @@ public class CreateNewAddressListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		AddressItemHelper aih = new AddressItemHelper();
+		
 		String detailsName = request.getParameter("detailsName");
-		System.out.println("List name: " + detailsName);
+		System.out.println("List name: " + detailsName + " from CNALS");
 		
 		String resident = request.getParameter("resident");
+		System.out.println(resident + " CNALS");
 		
 		String month = request.getParameter("month");
 		String day= request.getParameter("day");
@@ -48,6 +50,7 @@ public class CreateNewAddressListServlet extends HttpServlet {
 		
 		try {
 			ld = LocalDate.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
+			System.out.println(ld);
 		}
 		catch(NumberFormatException ex) {
 			ld=LocalDate.now();
@@ -61,8 +64,12 @@ public class CreateNewAddressListServlet extends HttpServlet {
 			for(int i= 0; i<selectedAddresses.length; i++) {
 				System.out.println(selectedAddresses[i]);
 				Address a = aih.searchForAddressById(Integer.parseInt(selectedAddresses[i]));
+				System.out.println(a.toString());
 				selectedAddressesInList.add(a);
 			}
+		}
+		else if(selectedAddresses == null) {
+			System.out.println("Yo this shit empty!");
 		}
 		
 		AddressList al = new AddressList(resident);

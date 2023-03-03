@@ -33,11 +33,10 @@ public class AddressDetails {
 	private List<Address> listOfAddresses;
 	
 	public AddressDetails() {
-		super();
+		
 	}
 	
 	public AddressDetails(int id, String detailsName, LocalDate accessDate, AddressList adList, List<Address> listOfAddresses) {
-		super();
 		this.id = id;
 		this.detailsName = detailsName;
 		this.accessDate = accessDate;
@@ -46,7 +45,6 @@ public class AddressDetails {
 	}
 	
 	public AddressDetails(String detailsName, LocalDate accessDate, AddressList adList, List<Address> listOfAddresses) {
-		super();
 		this.detailsName = detailsName;
 		this.accessDate = accessDate;
 		this.adList = adList;
@@ -54,7 +52,6 @@ public class AddressDetails {
 	}
 	
 	public AddressDetails(String detailsName, LocalDate accessDate, AddressList adList) {
-		super();
 		this.detailsName = detailsName;
 		this.accessDate = accessDate;
 		this.adList = adList;
@@ -84,14 +81,6 @@ public class AddressDetails {
 		this.accessDate = newAccessDate;
 	}
 	
-	public AddressList getAddressList() {
-		return adList;
-	}
-	
-	public void setAddressList(AddressList newAdList) {
-		this.adList = newAdList;
-	}
-	
 	public List<Address> getListOfAddresses(){
 		return listOfAddresses;
 	}
@@ -100,13 +89,26 @@ public class AddressDetails {
 		this.listOfAddresses = newList;
 	}
 	
+	/**
+	 * @return the adList
+	 */
+	public AddressList getAdList() {
+		return adList;
+	}
+
+	/**
+	 * @param adList the adList to set
+	 */
+	public void setAdList(AddressList adList) {
+		this.adList = adList;
+	}
+
 	@Override
 	public String toString() {
-		System.out.println("AddressDetails= [id:" + id + ", detailsName:" + detailsName + ", accessDate:" + accessDate + ", Resident:" + adList.getResident() + ", listOfAddresses:");
-		for(Address a: listOfAddresses) {
-			System.out.print(a.getStreet() + " " + a.getCity() + " " + a.getState() + " " + a.getZip());
-		}
-		return "]";
+		return "AddressDetails [id=" + id + ", detailsName=" + detailsName + ", accessDate=" + accessDate + ", adList="
+				+ adList + ", listOfAddresses=" + listOfAddresses + "]";
 	}
+	
+	
 
 }
