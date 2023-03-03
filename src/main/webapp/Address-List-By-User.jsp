@@ -23,7 +23,7 @@
 </table>
 <input type = "submit" value="delete" name="DoThisToList">
 </form>
-<a href="createNewAddressListServlet">Create a new address list</a>
+
 <a href="index.html">Add more addresses</a>
 </body>
 </html>
